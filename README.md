@@ -3,7 +3,7 @@ LibMX is a C library designed to offer a collection of useful functions for vari
 
 Features
 
-Linked List Operations
+Linked List Operations 
 mx_create_node: Create a new node in a linked list.
 mx_push_front: Insert a node at the beginning of the list.
 mx_push_back: Append a node to the end of the list.
@@ -54,7 +54,6 @@ Usage
 
 Include the header file in your C source code:
 
-c
 Copy code
 #include "libmx.h"
 Compile your project, linking against the library:
@@ -62,32 +61,4 @@ Compile your project, linking against the library:
 bash
 Copy code
 gcc -o your_program your_program.c -L/path/to/libmx -lmx
-Examples
 
-Creating and Manipulating a Linked List
-c
-Copy code
-#include "libmx.h"
-#include <stdio.h>
-
-int main() {
-    t_list *list = NULL;
-
-    mx_push_front(&list, "First");
-    mx_push_back(&list, "Second");
-    mx_push_back(&list, "Third");
-
-    printf("List size: %d\n", mx_list_size(list));
-
-    mx_pop_front(&list);
-    mx_pop_back(&list);
-
-    printf("List size after popping: %d\n", mx_list_size(list));
-
-    // Free remaining nodes
-    while (list != NULL) {
-        mx_pop_front(&list);
-    }
-
-    return 0;
-}
