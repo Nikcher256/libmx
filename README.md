@@ -1,7 +1,7 @@
-LibMX
+# LibMX
 LibMX is a C library designed to offer a collection of useful functions for various common programming tasks. It includes utilities for handling strings, memory operations, linked lists, and more.
 
-Features
+# Features
 
 ## Linked List Operations 
   - `mx_create_node`: Create a new node in a linked list.
@@ -43,22 +43,52 @@ Features
   - `mx_print_strarr`: Print an array of strings.
   - `mx_printint`: Print an integer.
   - `mx_file_to_str`: Read the contents of a file into a string.
-Installation
 
+## Installation
 To use this library, clone the repository and include the header file libmx.h in your project. Compile your code with the source files provided in this repository.
-
-bash
-Copy code
-git clone <repository_url>
-Usage
-
-Include the header file in your C source code:
-
-Copy code
-#include "libmx.h"
-Compile your project, linking against the library:
-
-bash
-Copy code
+```
 gcc -o your_program your_program.c -L/path/to/libmx -lmx
+```
+
+## Usage
+Include the header file in your C source code:
+```
+#include "libmx.h"
+```
+
+
+Compile your project, linking against the library:
+```
+gcc -o your_program your_program.c -L/path/to/libmx -lmx
+```
+
+## Examples
+### Creating and Manipulating a Linked List
+```
+#include "libmx.h"
+#include <stdio.h>
+
+int main() {
+    t_list *list = NULL;
+
+    mx_push_front(&list, "First");
+    mx_push_back(&list, "Second");
+    mx_push_back(&list, "Third");
+
+    printf("List size: %d\n", mx_list_size(list));
+
+    mx_pop_front(&list);
+    mx_pop_back(&list);
+
+    printf("List size after popping: %d\n", mx_list_size(list));
+
+    // Free remaining nodes
+    while (list != NULL) {
+        mx_pop_front(&list);
+    }
+
+    return 0;
+}
+```
+
 
