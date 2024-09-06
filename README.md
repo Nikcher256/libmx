@@ -1,5 +1,4 @@
 LibMX
-
 LibMX is a C library designed to offer a collection of useful functions for various common programming tasks. It includes utilities for handling strings, memory operations, linked lists, and more.
 
 Features
